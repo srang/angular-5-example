@@ -1,7 +1,6 @@
 #!/bin/bash
 echo "Before assembling"
 
-/usr/libexec/s2i/assemble
 rc=$?
 
 if [ $rc -eq 0 ]; then
@@ -13,5 +12,6 @@ if [ $rc -eq 0 ]; then
 else
     echo "After failed assembling"
 fi
-
+/usr/libexec/s2i/assemble
+npm install -g @angular/cli
 exit $rc
