@@ -14,7 +14,7 @@ node('nodejs8') {
   stage ('build image') {
     sh '''
       mkdir dist/nginx-cfg
-      cp nginx/status.conf dist/nginx-cfg
+      cp nginx/*.conf dist/nginx-cfg
       oc start-build angular-5-example-rhel --from-dir=dist --follow
     '''
   }
