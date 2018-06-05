@@ -4,22 +4,9 @@ node('nodejs8') {
   }
   stage ('install modules'){
     sh '''
-      npm install --verbose -d 
+      npm install --verbose -d
       npm install --save classlist.js
     '''
-  }
-  try{
-    stage ('test') {
-      sh '''
-        ls -l /opt/google/chrome/chrome-sandbox
-        $(npm bin)/ng test --single-run --browsers Chrome_no_sandbox
-      '''
-    }
-  } finally {
-    junit "test-results.xml"
-  }
-  stage ('code quality'){
-    sh '$(npm bin)/ng lint'
   }
   stage ('build') {
     sh '$(npm bin)/ng build --prod --build-optimizer'
