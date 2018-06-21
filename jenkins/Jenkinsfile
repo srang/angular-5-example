@@ -1,4 +1,4 @@
-node('nodejs') {
+node('nodejs8') {
   stage ('checkout') {
     checkout scm
   }
