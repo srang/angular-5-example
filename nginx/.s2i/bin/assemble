@@ -8,7 +8,7 @@ cp -Rf /tmp/src/. ./
 if [ ! -z ${NGINX_OVERRIDE_DEFAULT_LOC} ]; then
   echo "---> removing default location block from nginx.conf"
   # finds the default location block, and removes it only if block is empty
-  sed '/^\s*location \/ {/ { N; /^\s*location \/ {\n\s*}/d }' "${NGINX_CONF_PATH}"
+  sed -i '/^\s*location \/ {/ { N; /^\s*location \/ {\n\s*}/d }' "${NGINX_CONF_PATH}"
 fi
 
 if [ -f ./nginx.conf ]; then
