@@ -13,8 +13,7 @@ node('nodejs8') {
   }
   stage ('build image') {
     sh '''
-      mkdir dist/nginx-cfg
-      cp -r nginx/* dist
+      cp -r nginx/. dist
       oc start-build angular-5-example --from-dir=dist --follow
     '''
   }
